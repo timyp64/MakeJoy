@@ -1,0 +1,2522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tollBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/colorTextOnP" >
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/linearLayoutTargetApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ffffff"
+        android:gravity="center"
+    ><!-- TODO  Поиграться   с цветом и вынести его в файл ресурса-->
+
+        <TextView
+            android:id="@+id/btnTargetApp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="@string/Btn_target_text"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/btnTargetAppHide"
+            android:layout_weight="1"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@color/colorSecondary"
+            android:text="@string/text_link_target_app"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:onClick="onClick"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMainPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/list_events"
+            android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:text="@string/notyfication_list_events"
+            android:textStyle="italic"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="16dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:background="@color/colorSecondary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="@string/btn_create_list_events"
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+    <!--=================================================================================================================++===================================-->
+    <!--=================================================================================================================++===================================-->
+    <!--=================================================================================================================++===================================-->
+    <!--==================================================================================================================++===================================-->
+    <!--=================================================================================================================++===================================-->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <!--ШАПКА-->
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:layout_weight="4"
+                        android:background="#E1E1E1"
+                        android:gravity="center"
+                        android:text="Для кого предназначен"
+                        android:textColor="@android:color/black"
+                        android:paddingRight="1dp"
+                        android:paddingLeft="1dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="#E1E1E1"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Кол. сюрпр."
+                        android:paddingRight="1dp"
+                        android:paddingLeft="1dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="#E1E1E1"
+                        android:paddingBottom="8dp"
+                        android:paddingRight="1dp"
+                        android:paddingLeft="1dp"
+                        android:paddingTop="8dp"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Сост."
+                        android:textStyle="bold"/>
+
+                </TableRow>
+                <!--СТРОКИ-->
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:gravity=""
+                        android:paddingLeft="8dp"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:paddingRight="1dp"
+                        android:text="Название "
+                        android:textColor="@android:color/black"
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="33"
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Выкл."
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                   </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:gravity=""
+                        android:paddingLeft="8dp"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:paddingRight="1dp"
+                        android:text="Название 00 для когоН"
+                        android:textColor="@android:color/black"
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="33"
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Выкл."
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:gravity=""
+                        android:paddingLeft="8dp"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:paddingRight="1dp"
+                        android:text="Название 00 для когоН"
+                        android:textColor="@android:color/black"
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="33"
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Выкл."
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                </TableRow>
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:gravity=""
+                        android:paddingLeft="8dp"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:paddingRight="1dp"
+                        android:text="Название 00 для когоН"
+                        android:textColor="@android:color/black"
+
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="33"
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingTop="@dimen/paddingTop_table_list_events"
+                        android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                        android:textColor="@android:color/black"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Выкл."
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        />
+
+                </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow> <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity=""
+                    android:paddingLeft="8dp"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:paddingRight="1dp"
+                    android:text="Название 00 для когоН"
+                    android:textColor="@android:color/black"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="33"
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/paddingTop_table_list_events"
+                    android:paddingBottom="@dimen/paddingBottom_table_list_events"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Выкл."
+                    android:paddingRight="3dp"
+                    android:paddingLeft="3dp"
+                    />
+
+            </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MakeJoy</string>
+    <string name="Btn_target_text">Как это работает!</string>
+    <string name="text_link_target_app">Ок, я разобрался!</string>
+    <string name="list_events">Списки событий:</string>
+    <string name="notyfication_list_events">(для редактирования списка нажмите на название списка)</string>
+    <string name="btn_create_list_events">Создать список с сюрпризов</string>
+</resources>
